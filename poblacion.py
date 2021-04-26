@@ -2,12 +2,9 @@ def iniciar():
     # Ingrese la solucion en las lineas subsiguientes.
     # INICIO
     
-    # poblacion_inicial = float(input("Ingrese poblacion actual (en miles de millones):"))
-    # incremento = float(input("Ingrese tasa de crecimiento (en porcentaje):"))
-    
-    poblacion_inicial = 7.9
-    incremento = 1.05
-    
+    poblacion_inicial = float(input("Ingrese poblacion actual (en miles de millones):"))
+    incremento = float(input("Ingrese tasa de crecimiento (en porcentaje):"))
+
     print("CRECIMIENTO POBLACIONAL ANUAL")
     
     
@@ -20,13 +17,14 @@ def iniciar():
     
     seguir_iterando = True
     anio = 1
-    while seguir_iterando:
+    while anio_poblacion_cuadruplicada is None:
         
         incremento_poblacion = poblacion_previa * incremento / 100
         poblacion_actual = poblacion_previa + incremento_poblacion
 
-        print(str(anio) + ") Poblacion: " + str(round(poblacion_actual, 2)) +
-                                                " Incremento: " + str(round(incremento_poblacion, 2)))
+        if anio <= 100:
+            print(str(anio) + ") Poblacion: " + str(round(poblacion_actual, 2)) +
+                                                    " Incremento: " + str(round(incremento_poblacion, 2)))
         
         if anio_poblacion_duplicada is None and poblacion_actual >= poblacion_inicial * 2:
             # Una sola vez. La primera vez que esto sucede.
