@@ -17,7 +17,11 @@ def iniciar():
     anio_poblacion_cuadruplicada = None
     
     poblacion_previa = poblacion_inicial
-    for anio in range(1, 101, 1):
+    
+    seguir_iterando = True
+    anio = 1
+    while seguir_iterando:
+        
         incremento_poblacion = poblacion_previa * incremento / 100
         poblacion_actual = poblacion_previa + incremento_poblacion
 
@@ -28,7 +32,13 @@ def iniciar():
             # Una sola vez. La primera vez que esto sucede.
             anio_poblacion_duplicada = anio
         
+        if anio_poblacion_cuadruplicada is None and poblacion_actual >= poblacion_inicial * 4:
+            # Una sola vez. La primera vez que esto sucede.
+            anio_poblacion_cuadruplicada = anio
+        
         poblacion_previa = poblacion_actual
+        
+        anio += 1
         
     
     print("Poblacion duplicada en: " + str(anio_poblacion_duplicada))
