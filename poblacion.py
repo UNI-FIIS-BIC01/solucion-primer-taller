@@ -13,6 +13,9 @@ def iniciar():
     
     # 1) Poblacion: 7.98 Incremento: 0.08
     
+    anio_poblacion_duplicada = None
+    anio_poblacion_cuadruplicada = None
+    
     poblacion_previa = poblacion_inicial
     for anio in range(1, 101, 1):
         incremento_poblacion = poblacion_previa * incremento / 100
@@ -20,10 +23,17 @@ def iniciar():
 
         print(str(anio) + ") Poblacion: " + str(round(poblacion_actual, 2)) +
                                                 " Incremento: " + str(round(incremento_poblacion, 2)))
+        
+        if anio_poblacion_duplicada is None and poblacion_actual >= poblacion_inicial * 2:
+            # Una sola vez. La primera vez que esto sucede.
+            anio_poblacion_duplicada = anio
+        
         poblacion_previa = poblacion_actual
         
     
-    
+    print("Poblacion duplicada en: " + str(anio_poblacion_duplicada))
+    print("Poblacion cuadruplicada en: " + str(anio_poblacion_cuadruplicada))
+
     # FIN
     return
 
